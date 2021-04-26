@@ -1,0 +1,33 @@
+<header>
+    <div class="header content-wrapper">
+        <div class="header__logo">
+            <a href="/" class="header__ai-logo">
+                <img src="/assets/Logo.svg" alt="">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul class="nav__menu">
+                <li class="nav__item nav__item--mb-link">
+                    <a href="/">Showcase</a>
+                </li>
+                <li class="nav__item nav__item--mb-link" *ngIf="authService.user | async as user;">
+                    <a routerLink="/addbook">
+                        Add new book
+                    </a>
+                </li>
+                <li class="nav__item nav__item--mb-link nav__button" *ngIf="authService.user | async as user; else showSingIn">
+                    <a (click)="signOut()" class="button button--white button--info button--not-uppercase">
+                        Sign Out
+                    </a>
+                </li>
+                <ng-template #showSingIn>
+                    <li class="nav__item nav__item--mb-link nav__button">
+                        <a (click)="signIn()" class="button button--white button--info button--not-uppercase">
+                            Sign In
+                        </a>
+                    </li>
+                </ng-template>
+            </ul>
+        </nav>
+    </div>
+</header>

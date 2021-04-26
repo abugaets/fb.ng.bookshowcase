@@ -1,0 +1,12 @@
+<div class="book-card">
+    <div class="book-card__image-wrapper">
+        <a [routerLink]="['/book/', bookItem.id]">
+            <img src="{{bookItem.imageUrl || '/assets/empty-poster.png'}}" alt="">
+        </a>
+    </div>
+    <h1 class="book-card__h1">
+        {{bookItem.title}}
+    </h1>
+    <p-rating [ngModel]="bookItem.rating || 0" [cancel]="false" [readonly]="true"></p-rating>
+    
+</div>

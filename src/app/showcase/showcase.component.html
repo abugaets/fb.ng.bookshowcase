@@ -1,0 +1,7 @@
+<h1 class="title title--center">Showcase</h1>
+<!-- <ng-template *ngFor="let item of books | async">
+    <h1>ТЕкст</h1>
+</ng-template> -->
+<div class="p-grid">
+    <bookitem-card *ngFor="let item of books | async" [bookItem]="item"></bookitem-card>
+</div>

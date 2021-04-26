@@ -1,0 +1,41 @@
+<div class="p-grid p-fluid" *ngIf="bookItem | async as book">
+    <div class="book-form__image">
+        <img [src]="book.imageUrl || '/assets/empty-poster.png'" alt="">
+        <h4 class="book-form__h4">Raiting</h4>
+        <p-rating [ngModel]="book.rating || 0" [cancel]="false" [readonly]="true"></p-rating>
+    </div>
+    <div class="book-form__controls">
+        <div class="p-col-12">
+            <h1 class="book-form__h1 p-m-0">{{book.title}}</h1>
+        </div>
+        <div class="p-col-12">
+            <h4 class="book-form__h4 p-m-0">by {{book.author}}</h4>
+        </div>
+        <div class="p-col-12">
+            <h4 class="book-form__h4 p-m-0">Released {{book.year}}</h4>
+        </div>
+        <div class="p-col-12">
+            <h4 class="book-form__h4 p-m-0">Publisher: {{book.publisher}}</h4>
+        </div>
+        <div class="p-col-12">
+            <h4 class="book-form__h4 p-m-0">ISBN: {{book.isbn}}</h4>
+        </div>
+        <div class="p-col-12" *ngIf="book.pages">
+            <h4 class="book-form__h4 p-m-0">Pages: {{book.pages}}</h4>
+        </div>
+        <div class="p-col-12">
+            <h4 class="book-form__h4">Book description:</h4>
+            <p>{{book.description}}</p>
+        </div>
+    </div>
+    <div class="p-offset-9 p-col-3 p-grid p-jc-end">
+        <span class="p-buttonset" *ngIf="authService.user | async as user; else unauth">
+            <button pButton  type="button" label="Edit" icon="pi pi-check" [routerLink]="['/book', id ,'edit']"></button>
+            <button pButton type="button" class="p-button-outlined" label="Back" icon="pi pi-times" routerLink="/"></button>
+        </span>
+        <ng-template #unauth>
+            <p-button label="Back" class="p-button-outlined" icon="pi pi-times" routerLink="/"></p-button>
+        </ng-template>
+    </div>
+</div>
+<p-toast position="top-right"></p-toast>

@@ -1,0 +1,33 @@
+@import '../../variables';
+
+.index {
+    &__product-banner {
+        min-height: 400px;
+        background: 0 0;
+        height: 100%;
+        padding-top: 60px;
+        background-image: url('/assets/poster-bg.png');
+        background-size: 100%;
+        background-position: right -150px;
+
+        &-subtitle {
+            width: 49%;
+        }
+
+        &-title {
+            width: 62%;
+        }
+    }
+
+    &__left-styled-banner {
+        position: absolute;
+        left: -235px;
+        width: 515px;
+        height: auto;
+        top: -215px;
+
+        &-image {
+            width: 100%;
+        }
+    }
+}

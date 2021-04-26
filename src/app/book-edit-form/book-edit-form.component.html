@@ -1,0 +1,50 @@
+<form [formGroup]="bookForm" class="book-form" *ngIf="authService.user | async as user">
+    <div class="p-grid p-fluid">
+        <div class="book-form__image">
+            <img [src]="imageUrl || '/assets/empty-poster.png'" alt="">
+            <h4 class="book-form__h4">Raiting</h4>
+            <p-rating formControlName="rating"></p-rating>
+        </div>
+        <div class="book-form__controls">
+            <div class="p-col-12">
+                <h4 class="book-form__h4">Book title</h4>
+                <input type="text" pInputText formControlName="title" class="ng-dirty" placeholder="Book title"/>
+            </div>
+            <div class="p-col-6">
+                <h4 class="book-form__h4">Book author</h4>
+                <input type="text" pInputText formControlName="author" class="ng-dirty" placeholder="Book author"/>
+            </div>
+            <div class="p-col-6">
+                <h4 class="book-form__h4">Book image URL</h4>
+                <input type="text" pInputText formControlName="imageUrl" class="ng-dirty" placeholder="Book image URL"/>
+            </div>
+            <div class="p-col-6">
+                <h4 class="book-form__h4">ISBN</h4>
+                <input type="text" pInputText formControlName="isbn" class="ng-dirty" placeholder="ISBN"/>
+            </div>
+            <div class="p-col-6">
+                <h4 class="book-form__h4">Publisher</h4>
+                <input type="text" pInputText formControlName="publisher" class="ng-dirty" placeholder="Publisher"/>
+            </div>
+            <div class="p-col-6">
+                <h4 class="book-form__h4">Publish year</h4>
+                <input type="number" pInputText formControlName="year" class="ng-dirty" placeholder="Publish year"/>
+            </div>
+            <div class="p-col-6">
+                <h4 class="book-form__h4">Pages</h4>
+                <input type="number" pInputText formControlName="pages" class="ng-dirty" placeholder="Pages"/>
+            </div>
+            <div class="p-col-12">
+                <h4 class="book-form__h4">Book description</h4>
+                <textarea pInputTextarea formControlName="description" [rows]="5" class="ng-dirty" placeholder="Book description"></textarea>
+            </div>
+        </div>
+        <div class="p-offset-9 p-col-3">
+            <span class="p-buttonset">
+                <button pButton *ngIf="!disabled" type="button" label="Save" icon="pi pi-check" (click)="saveForm()"></button>
+                <button pButton *ngIf="disabled" type="button" label="Save" icon="pi pi-check" disabled></button>
+                <button pButton type="button" label="Cancel" icon="pi pi-times" routerLink="/"></button>
+            </span>
+        </div>
+    </div>
+</form>
